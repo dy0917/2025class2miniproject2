@@ -2,7 +2,7 @@ import TodoList from "../Components/TodoList";
 import TodoSubmitForm from "../Components/TodoSubmitForm";
 import { Grid } from "@mui/material";
 
-function Index() {
+export default function Index() {
   return (
     <>
       <Grid container>
@@ -17,5 +17,3 @@ function Index() {
     </>
   );
 }
-
-export default Index;
