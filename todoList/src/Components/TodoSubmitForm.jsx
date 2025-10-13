@@ -1,13 +1,12 @@
 import { useState, useContext } from "react";
 import { TodoContext } from "../Context/TodoContext";
+import { TextField, Button, Grid } from "@mui/material";
 
 export default function TodoSubmitForm() {
   const [originFormData, setOriginFormData] = useState({ title: "", desc: "" });
   const { addTodo } = useContext(TodoContext);
   const todoSubmit = (event) => {
     event.preventDefault();
-    const data = new FormData(event.target);
-    const todo = Object.fromEntries(data);
     addTodo(originFormData);
     setOriginFormData({ title: "", desc: "" });
   };
@@ -18,37 +17,36 @@ export default function TodoSubmitForm() {
   };
   return (
     <form onSubmit={todoSubmit}>
-      <div className="mb-3">
-        <label htmlFor="todoTitle" className="form-label">
-          Title
-        </label>
-        <input
-          type="text"
-          value={originFormData.title}
-          name="title"
-          onChange={(e) => {
-            updateFormData({ title: e.target.value });
-          }}
-          className="form-control"
-        />
-      </div>
-      <div className="mb-3">
-        <label htmlFor="todoDesc" className="form-label">
-          Description
-        </label>
-        <input
-          type="text"
-          name="desc"
-          value={originFormData.desc}
-          onChange={(e) => {
-            updateFormData({ desc: e.target.value });
-          }}
-          className="form-control"
-        />
-      </div>
-      <button type="submit" className="btn btn-primary">
-        Submit
-      </button>
+      <h1>New todo form</h1>
+      <Grid container spacing={2}>
+        <Grid size={12}>
+          <TextField
+            label="Title"
+            variant="outlined"
+            name="title"
+            value={originFormData.title}
+            sx={{ width: "100%" }}
+            onChange={(e) => {
+              updateFormData({ title: e.target.value });
+            }}
+          />
+        </Grid>
+        <Grid size={12}>
+          <TextField
+            label="Description"
+            variant="outlined"
+            name="description"
+            value={originFormData.desc}
+            sx={{ width: "100%" }}
+            onChange={(e) => {
+              updateFormData({ desc: e.target.value });
+            }}
+          />
+        </Grid>
+        <Grid>
+          <Button type="submit">Submit</Button>
+        </Grid>
+      </Grid>
     </form>
   );
 }

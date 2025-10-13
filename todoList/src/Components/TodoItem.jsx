@@ -1,5 +1,12 @@
 import { useContext } from "react";
-
+import {
+  Card,
+  CardActionArea,
+  CardContent,
+  Typography,
+  CardActions,
+  Button,
+} from "@mui/material";
 import { TodoContext } from "../Context/TodoContext";
 
 export default function TodoItem({ todo, index }) {
@@ -19,25 +26,27 @@ export default function TodoItem({ todo, index }) {
   };
 
   return (
-    <div className="card" style={{ width: "18rem" }}>
-      <div className="card-body">
-        <h5 style={textDecorationStyle}>{todo.title}</h5>
-        <p style={textDecorationStyle}>{todo.desc}</p>
-        <div>index: {index}</div>
-        <div className="form-check">
-          <input
-            className="form-check-input"
-            type="checkbox"
-            onClick={checkBoxClick}
-            value=""
-          />
-          <label className="form-check-label">Is completed</label>
-        </div>
-        <button className="btn btn-danger" onClick={delClick}>
-          Del
-        </button>
-        <button className="btn btn-primary">Update</button>
-      </div>
-    </div>
+    <>
+      <Card sx={{ maxWidth: 345 }}>
+        <CardActionArea>
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="div">
+              {todo.title}
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              {todo.desc}
+            </Typography>
+          </CardContent>
+        </CardActionArea>
+        <CardActions>
+          <Button size="small" onClick={delClick} color="error">
+            Del
+          </Button>
+          <Button size="small" color="primary">
+            Update
+          </Button>
+        </CardActions>
+      </Card>
+    </>
   );
 }

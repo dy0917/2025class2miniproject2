@@ -5,8 +5,8 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      "/api/weather": {
-        target: "https://goweather.herokuapp.com/",
+      "/api/todos": {
+        target: "http://localhost:5050/api/",
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ""),
       },
