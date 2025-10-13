@@ -1,13 +1,14 @@
-import { useState, useContext } from "react";
 import { TodoProvider } from "./Context/TodoContext";
 import TodoList from "./Components/TodoList";
 import TodoSubmitForm from "./Components/TodoSubmitForm";
 import { Grid } from "@mui/material";
+import { BrowserRouter } from "react-router-dom";
 
 function App() {
   return (
     <>
       <TodoProvider>
+        <BrowserRouter></BrowserRouter>
         <Grid container>
           <Grid offset={3}>
             <TodoSubmitForm />
