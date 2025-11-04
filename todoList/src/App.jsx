@@ -1,15 +1,14 @@
 import { TodoProvider } from "./Context/TodoContext";
-import TodoList from "./Components/TodoList";
-import TodoSubmitForm from "./Components/TodoSubmitForm";
-import { Grid } from "@mui/material";
 import { BrowserRouter } from "react-router-dom";
 import AppRoute from "./AppRoute";
+import Nav from "./Components/Nav";
 
 function App() {
   return (
     <>
       <TodoProvider>
         <BrowserRouter>
+          <Nav></Nav>
           <AppRoute></AppRoute>
         </BrowserRouter>
       </TodoProvider>

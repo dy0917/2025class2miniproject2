@@ -8,6 +8,7 @@ const {
 } = require("../Controllers/todoController");
 
 router.get("/", (req, res) => {
+  console.log('this is get todo route')
   res.json(getTodos());
 });
 // create a todos
