@@ -1,4 +1,5 @@
 const todoList = [];
+const todo = require("../Models/todo");
 const Todo = require("../Models/todo");
 
 const addTodo = async (todo) => {
@@ -10,15 +11,13 @@ const getAllTodosFromService = async () => {
   const todos = await Todo.find({});
   return todos;
 };
-const getTodoById = (id) => {
-  const todo = todoList.find((todo) => todo.id == id);
+const getTodoById = async (id) => {
+  const todo = await Todo.findById(id);
   return todo;
 };
 
-const deleteTodo = (id) => {
-  const targetTodo = getTodoById(id);
-  const targetIndex = todoList.indexOf(targetTodo);
-  todoList.splice(targetIndex, 1);
+const deleteTodo = async (id) => {
+  await Todo.findByIdAndDelete(id);
 };
 
 const updateTodo = (id, body) => {

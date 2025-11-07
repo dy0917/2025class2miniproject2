@@ -15,10 +15,10 @@ const getTodos = async () => {
   return await getAllTodosFromService();
 };
 
-const removeTodos = (id) => {
-  const targetTodo = getTodoById(id);
+const removeTodos = async (id) => {
+  const targetTodo = await getTodoById(id);
   if (targetTodo) {
-    deleteTodo(id);
+    await deleteTodo(id);
     return true;
   } else {
     return false;

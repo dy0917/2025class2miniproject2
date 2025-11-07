@@ -18,9 +18,9 @@ router.post("/", async (req, res) => {
   res.json(newTodo);
 });
 
-router.delete("/:id", (req, res) => {
+router.delete("/:id", async (req, res) => {
   const { id } = req.params;
-  const isDeleted = removeTodos(id);
+  const isDeleted = await removeTodos(id);
   if (isDeleted) {
     res.sendStatus(204);
   } else {
