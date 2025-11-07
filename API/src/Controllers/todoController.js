@@ -6,8 +6,8 @@ const {
   getTodoById,
 } = require("../Services/todoService");
 
-const createTodo = (todo) => {
-  const todoList = getAllTodosFromService();
+const createTodo = async (todo) => {
+  const todoList = await getAllTodosFromService();
   currentMaxId =
     todoList.length > 0 ? Math.max(...todoList.map((todo) => todo.id)) : 0;
   nextId = currentMaxId + 1;
@@ -16,8 +16,8 @@ const createTodo = (todo) => {
   return newTodo;
 };
 
-const getTodos = () => {
-  return getAllTodosFromService();
+const getTodos = async () => {
+  return await getAllTodosFromService();
 };
 
 const removeTodos = (id) => {

@@ -1,11 +1,13 @@
 const todoList = [];
+const Todo = require("../Models/todo");
 
 const addTodo = (todo) => {
   todoList.push(todo);
 };
 
-const getAllTodosFromService = () => {
-  return todoList;
+const getAllTodosFromService = async () => {
+  const todos = await Todo.find({});
+  return todos;
 };
 const getTodoById = (id) => {
   const todo = todoList.find((todo) => todo.id == id);

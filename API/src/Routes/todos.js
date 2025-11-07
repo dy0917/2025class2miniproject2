@@ -7,9 +7,9 @@ const {
   updateTodoAction,
 } = require("../Controllers/todoController");
 
-router.get("/", (req, res) => {
-  console.log('this is get todo route')
-  res.json(getTodos());
+router.get("/", async (req, res) => {
+  console.log("this is get todo route");
+  res.json(await getTodos());
 });
 // create a todos
 router.post("/", (req, res) => {
