@@ -1,8 +1,9 @@
 const todoList = [];
 const Todo = require("../Models/todo");
 
-const addTodo = (todo) => {
-  todoList.push(todo);
+const addTodo = async (todo) => {
+  const savedTodo = await Todo(todo).save();
+  return savedTodo;
 };
 
 const getAllTodosFromService = async () => {

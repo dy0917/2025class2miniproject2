@@ -12,9 +12,9 @@ router.get("/", async (req, res) => {
   res.json(await getTodos());
 });
 // create a todos
-router.post("/", (req, res) => {
+router.post("/", async (req, res) => {
   const body = req.body;
-  const newTodo = createTodo(body);
+  const newTodo = await createTodo(body);
   res.json(newTodo);
 });
 
