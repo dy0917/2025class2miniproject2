@@ -25,10 +25,10 @@ const removeTodos = async (id) => {
   }
 };
 
-const updateTodoAction = (id, body) => {
-  const targetTodo = getTodoById(id);
+const updateTodoAction = async (id, body) => {
+  const targetTodo = await getTodoById(id);
   if (targetTodo) {
-    const updatedTodo = updateTodo(id, body);
+    const updatedTodo = await updateTodo(id, body);
     return updatedTodo;
   } else {
     return undefined;

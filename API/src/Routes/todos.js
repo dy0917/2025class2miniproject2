@@ -28,10 +28,10 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
-router.put("/:id", (req, res) => {
+router.put("/:id", async (req, res) => {
   const { id } = req.params;
   const body = req.body;
-  const updatedTodo = updateTodoAction(id, body);
+  const updatedTodo = await updateTodoAction(id, body);
   if (updatedTodo) {
     res.json(updatedTodo);
   } else {
