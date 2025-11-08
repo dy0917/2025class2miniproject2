@@ -42,7 +42,8 @@ export const TodoProvider = (props) => {
   const removeTodo = async (index) => {
     try {
       const targetTodo = todos[index];
-      await axios.delete(`api/todos/${targetTodo.id}`);
+      console.log("targetTodo", targetTodo);
+      await axios.delete(`api/todos/${targetTodo._id}`);
       dispatch({ type: "removeTodo", payload: index });
     } catch (e) {
       console.log(e);
