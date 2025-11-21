@@ -3,7 +3,11 @@ import { TodoContext } from "../Context/TodoContext";
 import { TextField, Button, Grid } from "@mui/material";
 
 export default function TodoSubmitForm() {
-  const [originFormData, setOriginFormData] = useState({ title: "", desc: "" });
+  const [originFormData, setOriginFormData] = useState({
+    title: "",
+    desc: "",
+    date: "",
+  });
   const { addTodo } = useContext(TodoContext);
   const todoSubmit = (event) => {
     event.preventDefault();
@@ -37,6 +41,18 @@ export default function TodoSubmitForm() {
             variant="outlined"
             name="description"
             value={originFormData.desc}
+            sx={{ width: "100%" }}
+            onChange={(e) => {
+              updateFormData({ desc: e.target.value });
+            }}
+          />
+        </Grid>
+        <Grid size={12}>
+          <TextField
+            label="Date"
+            variant="outlined"
+            name="date"
+            value={originFormData.date}
             sx={{ width: "100%" }}
             onChange={(e) => {
               updateFormData({ desc: e.target.value });

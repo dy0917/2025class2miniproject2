@@ -9,7 +9,8 @@ const {
 
 router.get("/", async (req, res) => {
   console.log("this is get todo route");
-  res.json(await getTodos());
+  const todos = await aFunction();
+  res.json(todos);
 });
 // create a todos
 router.post("/", async (req, res) => {

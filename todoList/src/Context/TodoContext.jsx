@@ -28,6 +28,8 @@ export const TodoProvider = (props) => {
 
   useEffect(() => {
     const initData = async () => {
+      //
+      console.log('call api for data')
       const response = await axios.get("api/todos");
       dispatch({ type: "init", payload: response.data });
     };
@@ -50,8 +52,9 @@ export const TodoProvider = (props) => {
     }
   };
 
-  const updateTodo = (index, todo) => {
+  const updateTodo = async (index, todo) => {
     const copiedTodos = [...todos];
+    // await axios.put(`api/todos/${copiedTodos._id}`);
     copiedTodos.splice(index, 1, todo);
     setTodos(copiedTodos);
   };

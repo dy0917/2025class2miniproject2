@@ -5,6 +5,7 @@ import { Grid } from "@mui/material";
 export default function Index() {
   return (
     <>
+    this is the home page
       <Grid container>
         <Grid offset={3}>
           <TodoSubmitForm />
