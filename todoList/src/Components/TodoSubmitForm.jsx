@@ -19,6 +19,7 @@ export default function TodoSubmitForm() {
     const updateFormData = { ...originFormData, ...incomingData }; //title| desc
     setOriginFormData(updateFormData);
   };
+  
   return (
     <form onSubmit={todoSubmit}>
       <h1>New todo form</h1>

@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -6,8 +7,9 @@ import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import { NavLink } from "react-router-dom";
-
+import { UserContext } from "../Context/UserContext";
 export default function Nav() {
+  const { user, login, logout } = useContext(UserContext);
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -25,7 +27,19 @@ export default function Nav() {
             News
           </Typography>
           <NavLink to="/about">about</NavLink>
-          <Button color="inherit">Login</Button>
+          {!user ? (
+            <Button color="inherit" onClick={() => login()}>
+              Login
+            </Button>
+          ) : (
+            user.name
+          )}
+
+          {user && (
+            <Button color="inherit" onClick={() => logout()}>
+              Logout
+            </Button>
+          )}
         </Toolbar>
       </AppBar>
     </Box>
